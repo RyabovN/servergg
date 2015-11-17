@@ -1,13 +1,16 @@
 package servlets;
 
-import  org.eclipse.jetty.server.*;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+
 import  fronted.SignInServlet;
 import  fronted.SignUpServlet;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 
 import javax.servlet.Servlet;
-import javax.servlet.ServletContext;
 
 /**
  * Created by zak on 14.11.2015.
@@ -22,7 +25,7 @@ public class Main {
         Servlet signin = new SignInServlet(accountService);
         Servlet signup = new SignUpServlet(accountService);
 
-        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        ServletContextHandler  context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(signin), "auth/signin");
         context.addServlet(new ServletHolder(signup), "auth/signup");
 
@@ -31,7 +34,7 @@ public class Main {
         resource_handler.setResourceBase("public_html");
 
         HandlerList handlers = new HandlerList();
-        handlers.setHandlers(new Handler[](resource_handler, context));
+        handlers.setHandlers(new Handler[]{resource_handler, context});
 
         Server server = new Server(port);
         server.setHandler(handlers);
