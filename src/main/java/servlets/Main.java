@@ -1,14 +1,13 @@
 package servlets;
 
+import frontend.SignInServlet;
+import frontend.SignUpServlet;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
-
-import  fronted.SignInServlet;
-import  fronted.SignUpServlet;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 
 import javax.servlet.Servlet;
 
@@ -17,17 +16,17 @@ import javax.servlet.Servlet;
  */
 public class Main {
     public static void main(String[] args) throws  Exception{
-        int port = 8080;
+        int port = 8088;
         System.out.append("Starting at port: ").append(String.valueOf(port));
 
         AccountService accountService = new AccountService();
-
         Servlet signin = new SignInServlet(accountService);
         Servlet signup = new SignUpServlet(accountService);
 
+
         ServletContextHandler  context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(signin), "auth/signin");
-        context.addServlet(new ServletHolder(signup), "auth/signup");
+        context.addServlet(new ServletHolder(signin), "/auth/signin");
+        context.addServlet(new ServletHolder(signup), "/auth/signup");
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setDirectoriesListed(true);

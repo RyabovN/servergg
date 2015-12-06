@@ -27,6 +27,6 @@ public class AccountService {
     }
 
     public UserProfile getSession(String sessionID) {
-        sessions.get(sessionID);
+        return sessions.get(sessionID);
     }
 }
