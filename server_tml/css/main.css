@@ -1,0 +1,67 @@
+.reg {
+	float:left;
+    background-image: url(1.jpg);
+    border-radius: 10px;
+    height: 150px;
+    margin-top: -142px;
+    margin-left: 9px;
+}
+
+.reg:hover {
+    margin-top: -10px;
+}
+
+.auth {
+	float:left;
+    background-image: url(2.jpg);
+    border-radius: 10px;
+    height: 120px;
+    margin-left: -563px;
+    margin-top: 16px;
+}
+
+.auth:hover {
+    margin-left: -296px;
+}
+
+.reg div {
+	padding:10px;
+}
+
+.auth div {
+padding:10px;
+}
+.hidden {
+	display:none;
+}
+form div label{
+	margin-top:10px;
+	display:block;
+}
+
+form div input{
+	margin-left:30px
+}
+
+.RegButton, .AuthButton {
+	float:right;
+	margin-top:10px;
+	background-color: burlywood;
+	border-radius: 5px;
+}
+
+.showPanel {
+	display:block;
+}
+.block {
+    width: 700px;
+}
+
+.nya {
+    background-image: url(nya.png);
+    position: absolute;
+    margin-top: 30%;
+    width: 150px;
+    height: 173px;
+    margin-left: -10px;
+}
