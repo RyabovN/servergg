@@ -2,6 +2,8 @@ package servlets;
 
 import frontend.SignInServlet;
 import frontend.SignUpServlet;
+import frontend.LogOutServlet;
+import frontend.MainServlet;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -22,6 +24,7 @@ public class Main {
         AccountService accountService = new AccountService();
         Servlet signin = new SignInServlet(accountService);
         Servlet signup = new SignUpServlet(accountService);
+        Servlet logout = new LogOutServlet(accountService);
 
 
         ServletContextHandler  context = new ServletContextHandler(ServletContextHandler.SESSIONS);
