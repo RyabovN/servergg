@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+	<profile login="123">
+		<password>12345</password>
+        	<email>test@test.ru</email>
+	</profile>
+</users>
