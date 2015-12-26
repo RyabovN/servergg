@@ -26,4 +26,13 @@ public class PageGenerator {
         }
         return stream.toString();
     }
+    public static String getBackPage(String filename) {
+        try {
+            Template template = CFG.getTemplate(HTML_DIR + File.separator + filename);
+            return template.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
